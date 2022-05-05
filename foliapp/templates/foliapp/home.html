@@ -1,0 +1,54 @@
+
+{% extends "foliapp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row justify-content-center my-3">
+  <div class="col-5">
+    <img src="{% static 'foliapp/frans5.jpg' %}" class="img-fluid">
+  </div>
+</div>
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+    <h1 id="hometext" class="font-weight-bold">Frans Littow is a student living in Oulu, Finland</h1>
+  </div>
+</div>
+
+<h2 class="mt-5">Skills</h2>
+<hr>
+<div class="row">
+  {% for skill in skills %}
+  <div class="col-lg-4 col-md-6">
+    <img src="{{ skill.image.url }}" class="img-fluid mb-2">
+    <h3>{{ skill.title }}</h3>
+    <p>{{ skill.description }}</p>
+
+  </div>
+  {% endfor %}
+
+</div>
+<h2 class="mt-5">Projects</h2>
+<hr>
+<div class="row">
+  {% for project in projects %}
+  <div class="col-lg-4 col-md-6">
+
+    {% if project.url %}
+    <a href="{{ project.url }}">
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% else %}
+
+    <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    {% endif %}
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.description }}</p>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "foliapp/base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center mb-3">
+    <div class="col-md-9 text-center">
+      <h1 id="hometext" class="font-weight-bold">About Me</h1>
+      <br>
+      <br>
+      <div>
+        {% for text in texts %}
+            <h4>{{  text.description }}</h4>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
